@@ -1,0 +1,56 @@
+{
+  "name": "nedb-rx",
+  "version": "0.1.0",
+  "description": "A typescript/rxjs wrapper for nedb",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/**/*"
+  ],
+  "scripts": {
+    "test": "jest --config jestconfig.json",
+    "build": "rimraf lib && tsc --build tsconfig.build.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\" \"example/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "example": "ts-node example/example.ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
+    "clean": "rimraf node_modules lib",
+    "precommit": "npm run test && npm run lint && npm run format"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crusaider/nedb-rx.git"
+  },
+  "keywords": [
+    "nedb",
+    "rxjs",
+    "reactive",
+    "typescript"
+  ],
+  "author": "Jonas Andreasson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crusaider/nedb-rx/issues"
+  },
+  "homepage": "https://github.com/crusaider/nedb-rx#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "git-pre-commit": "^2.1.4",
+    "jest": "^24.7.1",
+    "prettier": "^1.16.4",
+    "rimraf": "^2.6.3",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.0.3",
+    "tslint": "^5.15.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.4.2"
+  },
+  "dependencies": {
+    "nedb": "^1.8.0",
+    "rxjs": "^6.4.0",
+    "@types/nedb": "^1.8.7"
+  }
+}
